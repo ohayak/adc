@@ -15,6 +15,7 @@ public class ServerWebDataHello implements ServerWebDataProvider {
 		
 		// On génère la réponse
 		try (Writer out = resp.getOutput()){
+			out.write("HTTP/1.1 200 OK\n\n");
 			out.write("<h1>" + "Hello " + name + "! Je suis une servlet" + "</h1>");
 			out.flush();
 			out.close();

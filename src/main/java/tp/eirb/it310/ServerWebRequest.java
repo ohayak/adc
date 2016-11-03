@@ -6,27 +6,33 @@ import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.util.HashMap;
 import java.util.Map;
+import java.util.logging.Logger;
 
 public class ServerWebRequest {
+	private static final Logger LOGGER = Logger.getLogger( ServerWebRequest.class.getName() );
 	private String path;
 	private Map<String, String> parameters;
 
 	public ServerWebRequest(InputStream request) throws IOException {
 		BufferedReader br = new BufferedReader(new InputStreamReader(request));
-		String line = null;
-		while ((line = br.readLine()) != null) {
-			if (line.startsWith("GET")) { 
-				path =  line.split(" |?|#")[1];
-				parameters = processQuery( line.split("?|#")[1]);
+		String line = br.readLine();
+			if (line.startsWith("GET")) {
+				if (line.contains("?|#")) {
+					path =  line.split(" |?|#")[1];
+					parameters = processQuery( line.split("?|#")[1]);
+				}else {
+					path = line.split(" ")[1];
+					parameters = new HashMap<String, String>();
+				}
 				
 			} else if(line.startsWith("POST")) {
 				
 			} else if (line.startsWith("PUT")) {
 			
 			} else {
-				throw new IOException("Unhandled http request methode");
+				LOGGER.warning("This line is not supported:" + line);
 			}
-		}
+		LOGGER.info("Done processing request");
 
 	}
 	public String getPath() {
