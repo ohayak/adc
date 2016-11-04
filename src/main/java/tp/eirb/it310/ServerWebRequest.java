@@ -15,26 +15,20 @@ public class ServerWebRequest {
 
 	public ServerWebRequest(InputStream request) throws IOException {
 		BufferedReader br = new BufferedReader(new InputStreamReader(request));
-		String line = br.readLine();
-			if (line.startsWith("GET")) {
-				if (line.contains("?|#")) {
-					path =  line.split(" |?|#")[1];
-					parameters = processQuery( line.split("?|#")[1]);
-				}else {
-					path = line.split(" ")[1];
-					parameters = new HashMap<String, String>();
-				}
-				
-			} else if(line.startsWith("POST")) {
-				
-			} else if (line.startsWith("PUT")) {
-			
-			} else {
-				LOGGER.warning("This line is not supported:" + line);
+		while (br.ready()) {
+			String line = br.readLine();
+			if (line.startsWith("GET")) {				
+				String[] content = line.split(" ")[1].split("\\?");	
+					path = content[0];
+					if (content.length > 1)
+						parameters = processQuery(content[1]);
+					else
+						parameters = new HashMap<String, String>();
 			}
+		}
 		LOGGER.info("Done processing request");
-
 	}
+	
 	public String getPath() {
 		return path;
 	}

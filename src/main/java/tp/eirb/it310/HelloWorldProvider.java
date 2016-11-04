@@ -4,7 +4,7 @@ import java.io.IOException;
 import java.io.Writer;
 import java.util.Map;
 
-public class ServerWebDataHello implements ServerWebDataProvider {
+public class HelloWorldProvider implements ServerWebDataProvider {
 	
 	@Override
 	public void doGet(ServerWebRequest req, ServerWebResponse resp)  {
