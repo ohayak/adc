@@ -90,7 +90,7 @@
 		
         
     </dependencies>
-    
+
 
     <build>
         <!-- Set the name of the war, used as the context root when the app is deployed -->
@@ -101,6 +101,7 @@
         <filtering>true</filtering>
         </resource>
         </resources>
+
         <plugins>
             <plugin>
                 <artifactId>maven-war-plugin</artifactId>
@@ -132,3 +133,4 @@
     </build>
 
 </project>
+
