@@ -1,0 +1,6 @@
+com/groupeonepoint/enseirb/war/hello/AddUserViewServlet.class
+com/groupeonepoint/enseirb/war/hello/UserDatabase.class
+com/groupeonepoint/enseirb/war/hello/AddUserActionServlet.class
+com/groupeonepoint/enseirb/war/hello/User.class
+com/groupeonepoint/enseirb/war/hello/UsersServlet.class
+com/groupeonepoint/enseirb/war/hello/UserDatabaseFactory.class
