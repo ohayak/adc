@@ -1,3 +1,0 @@
-Mouse,Mickey
-Wen,Liu
-Harry,Potter

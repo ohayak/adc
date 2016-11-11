@@ -27,7 +27,7 @@ public class AddUserViewServlet extends HttpServlet {
         out.write("<!DOCTYPE html>");
         out.write("<html>");
         out.write("<body>");
-        out.write("<form action='/wildfly-project-template/adduser.action' method='post'>");
+        out.write("<form action='/wildfly-project/adduser.action' method='post'>");
         out.write("First name:<br>");
         out.write("<input type='text' name='firstname' />");
         out.write("<br>");

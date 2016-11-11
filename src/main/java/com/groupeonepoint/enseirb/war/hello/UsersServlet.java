@@ -41,7 +41,7 @@ public class UsersServlet extends HttpServlet {
             out.println("<td>"+entry.getNom()+"</td>");          
         }
         out.println("</table>");        
-        out.println("<form action='/wildfly-project-template/adduser.view'>");
+        out.println("<form action='/wildfly-project/adduser.view'>");
         	out.println("<input type='submit' value='new user'/>");
         out.println("</form>");
         out.println("</body>");

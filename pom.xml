@@ -7,7 +7,7 @@
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>eirb.adc</groupId>
-    <artifactId>wildfly-project-template</artifactId>
+    <artifactId>wildfly-project</artifactId>
     <version>0.0.1</version>
     <packaging>war</packaging>
     <description>Template de war pour les cours de l'IT310</description>
@@ -23,7 +23,7 @@
 
         <!-- other plugin versions -->
         <version.compiler.plugin>3.1</version.compiler.plugin>
-        <version.war.plugin>2.5</version.war.plugin>
+        <version.war.plugin>2.6</version.war.plugin>
 
         <!-- maven-compiler-plugin -->
         <maven.compiler.target>1.7</maven.compiler.target>
@@ -95,13 +95,6 @@
     <build>
         <!-- Set the name of the war, used as the context root when the app is deployed -->
         <finalName>${project.artifactId}</finalName>
-        <resources>
-        <resource>
-        <directory>src/main/resources</directory>
-        <filtering>true</filtering>
-        </resource>
-        </resources>
-
         <plugins>
             <plugin>
                 <artifactId>maven-war-plugin</artifactId>
@@ -110,12 +103,11 @@
                     <!-- Java EE 7 doesn't require web.xml, Maven needs to catch up! -->
                     <failOnMissingWebXml>false</failOnMissingWebXml>
                     <webResources>
-                    <resource>
-                    <filtering>true</filtering>
-                    <targetPath>WEB-INF/context</targetPath>
-                    <directory>src/main/resources/</directory>
-                    <includes><include>users.txt</include></includes>
-                    </resource>
+                        <resource>
+                            <!-- this is relative to the pom.xml directory -->
+                            <directory>src/main/resources</directory>
+                            <targetPath>WEB-INF/classes</targetPath>
+                        </resource>
                     </webResources>
                 </configuration>
             </plugin>
@@ -127,6 +119,7 @@
                 <configuration>
                     <source>${maven.compiler.source}</source>
                     <target>${maven.compiler.target}</target>
+
                 </configuration>
             </plugin>
         </plugins>

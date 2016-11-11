@@ -26,7 +26,7 @@ public class AddUserActionServlet extends HttpServlet {
 		if(firstname!=null&&lastname!=null){
 			UserDatabase db = UserDatabaseFactory.getInstance();
 			db.addUser(new User(firstname,lastname));
-			resp.sendRedirect("/wildfly-project-template/users");
+			resp.sendRedirect("/wildfly-project/users");
 		}
 		
         
