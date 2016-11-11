@@ -1,0 +1,6 @@
+/home/lusha/workspace/eclipseworkspace/wildfly-project-template/src/main/java/com/groupeonepoint/enseirb/war/hello/UserDatabaseFactory.java
+/home/lusha/workspace/eclipseworkspace/wildfly-project-template/src/main/java/com/groupeonepoint/enseirb/war/hello/AddUserViewServlet.java
+/home/lusha/workspace/eclipseworkspace/wildfly-project-template/src/main/java/com/groupeonepoint/enseirb/war/hello/User.java
+/home/lusha/workspace/eclipseworkspace/wildfly-project-template/src/main/java/com/groupeonepoint/enseirb/war/hello/AddUserActionServlet.java
+/home/lusha/workspace/eclipseworkspace/wildfly-project-template/src/main/java/com/groupeonepoint/enseirb/war/hello/UsersServlet.java
+/home/lusha/workspace/eclipseworkspace/wildfly-project-template/src/main/java/com/groupeonepoint/enseirb/war/hello/UserDatabase.java
