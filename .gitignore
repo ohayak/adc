@@ -1,6 +1,4 @@
 /target/
 .classpath
 .project
-.idea
 .settings
-/wildfly-project.iml

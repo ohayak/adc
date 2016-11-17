@@ -87,8 +87,13 @@
 			<artifactId>mockito-all</artifactId>
 			<version>1.10.19</version>
 		</dependency>
-		
-        
+        <dependency>
+            <groupId>eirb.adc</groupId>
+            <artifactId>wildfly-project</artifactId>
+            <version>0.0.1</version>
+        </dependency>
+
+
     </dependencies>
 
 
