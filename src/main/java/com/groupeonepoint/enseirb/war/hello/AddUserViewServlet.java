@@ -24,21 +24,7 @@ public class AddUserViewServlet extends HttpServlet {
         // On génère la réponse
         resp.setContentType("text/html");
         PrintWriter out = resp.getWriter();
-        out.write("<!DOCTYPE html>");
-        out.write("<html>");
-        out.write("<body>");
-        out.write("<form action='/wildfly-project/adduser.action' method='post'>");
-        out.write("First name:<br>");
-        out.write("<input type='text' name='firstname' />");
-        out.write("<br>");
-        out.write("Last name:<br>");
-        out.write("<input type='text' name='lastname' />");
-        out.write("<br><br>");
-        out.write("<input type='submit' value='Submit' />");
-        out.write("</form>");
-        out.write("</body>");
-        out.write("</html>");
-        out.flush();
+        this.getServletContext().getRequestDispatcher( "/ListUsers.jsp" ).forward( req, resp );
     }
 
 }

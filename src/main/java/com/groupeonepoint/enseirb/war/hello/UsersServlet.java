@@ -24,7 +24,7 @@ public class UsersServlet extends HttpServlet {
             throws ServletException, IOException {
         db = UserDatabaseFactory.getInstance();
         req.setAttribute( "usersDatabase", db );
-        this.getServletContext().getRequestDispatcher( "/WEB-INF/ListUsers.jsp" ).forward( req, resp );
+        this.getServletContext().getRequestDispatcher( "/ListUsers.jsp" ).forward( req, resp );
     }
 
 }

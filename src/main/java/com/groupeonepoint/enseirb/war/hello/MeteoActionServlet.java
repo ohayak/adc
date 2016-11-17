@@ -11,6 +11,7 @@ import java.io.IOException;
 /**
  * Created by mrhyk on 14/11/2016.
  */
+
 @WebServlet(name = "MeteoAction", urlPatterns = "cdi/meteo.action")
 public class MeteoActionServlet extends HttpServlet {
     @Inject
@@ -20,6 +21,12 @@ public class MeteoActionServlet extends HttpServlet {
     }
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-
+        String city = request.getParameter("city");
+        if (city != null && !city.isEmpty()) {
+            float temperature = meteoProvider.getCityTemperature("city");
+            request.setAttribute("city", city);
+            request.setAttribute("temperature", temperature);
+        }
+        request.getRequestDispatcher("/Meteo.jsp").forward(request, response);
     }
 }
