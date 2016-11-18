@@ -14,20 +14,17 @@
     <title>Title</title>
 </head>
 <body>
-<form action='/wildfly-project/meteo.action' method='post'>
-    Ville:<br>
-    <input type='text' name='ville' />
+<form action='/wildfly-project/meteo' method='post'>
+    Ville:
+    <br>
+    <input type='text' name='city' />
     <br>
     <input type='submit' value='Submit' />
 </form>
-
 <br>
-<table>
-    <tr>
-    	<td>City: <c:out value="${city}"/></td>
-    	<td>Temperature: <c:out value="${temperature}"/></td>
-    </tr>
-</table>
+City: <c:out value="${city}"/>
+<br>
+Temperature: <c:out value="${temperature}"/>
 
 
 </body>

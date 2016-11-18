@@ -12,19 +12,21 @@ import java.io.IOException;
  * Created by mrhyk on 14/11/2016.
  */
 
-@WebServlet(name = "MeteoAction", urlPatterns = "meteo.action")
-public class MeteoActionServlet extends HttpServlet {
+@WebServlet(name = "MeteoAction", urlPatterns = "/meteo")
+public class MeteoServlet extends HttpServlet {
     /**
 	 * 
 	 */
 	private static final long serialVersionUID = 1L;
 	@Inject
     private MeteoProvider meteoProvider;
-    protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
+    protected void doGet(HttpServletRequest req, HttpServletResponse resp)
+            throws ServletException, IOException {
+        req.getRequestDispatcher("/Meteo.jsp").forward(req,resp);
     }
 
-    protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+    protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         String city = request.getParameter("city");
         if (city != null && !city.isEmpty()) {
             float temperature = meteoProvider.getCityTemperature("city");
