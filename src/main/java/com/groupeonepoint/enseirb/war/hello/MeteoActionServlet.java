@@ -12,9 +12,13 @@ import java.io.IOException;
  * Created by mrhyk on 14/11/2016.
  */
 
-@WebServlet(name = "MeteoAction", urlPatterns = "cdi/meteo.action")
+@WebServlet(name = "MeteoAction", urlPatterns = "meteo.action")
 public class MeteoActionServlet extends HttpServlet {
-    @Inject
+    /**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+	@Inject
     private MeteoProvider meteoProvider;
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
