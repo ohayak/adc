@@ -11,10 +11,11 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
-    <title>Title</title>
+    <title>Meteo</title>
+    <jsp:include page="menubar-user.jsp" />
 </head>
 <body>
-<form action='/wildfly-project/meteo' method='post'>
+<form action='${pageContext.request.contextPath}/meteo' method='post'>
     Ville:
     <br>
     <input type='text' name='city' />

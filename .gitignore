@@ -1,4 +1,6 @@
 /target/
-.classpath
-.project
-.settings
+/.classpath
+/.project
+/.settings
+/wildfly-project.iml
+/.tern-project

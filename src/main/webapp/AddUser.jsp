@@ -7,13 +7,20 @@
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <!DOCTYPE html>
+<head>
+    <jsp:include page="menubar-admin.jsp" />
+</head>
 <html>
 <body>
-<form action='/wildfly-project/adduser.action' method='post'>
+<form action="${pageContext.request.contextPath}/admin/registeruser" method="get">
     First name:<br>
     <input type='text' name='firstname' /><br>
-    Last name:
+    Last name:<br>
     <input type='text' name='lastname' /><br>
+    Login:<br>
+    <input type='text' name='login' /><br>
+    Password:<br>
+    <input type='text' name='password' /><br>
     <input type='submit' value='Submit' />
 </form>
 </body>

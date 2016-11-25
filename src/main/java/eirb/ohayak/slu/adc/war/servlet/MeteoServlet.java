@@ -1,4 +1,7 @@
-package com.groupeonepoint.enseirb.war.hello;
+package eirb.ohayak.slu.adc.war.servlet;
+
+import eirb.ohayak.slu.adc.war.bean.MeteoProvider;
+import eirb.ohayak.slu.adc.war.bean.User;
 
 import javax.inject.Inject;
 import javax.servlet.ServletException;
@@ -7,6 +10,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
+import java.util.HashMap;
 
 /**
  * Created by mrhyk on 14/11/2016.
@@ -18,7 +22,8 @@ public class MeteoServlet extends HttpServlet {
 	 * 
 	 */
 	private static final long serialVersionUID = 1L;
-	@Inject
+
+    @Inject
     private MeteoProvider meteoProvider;
 
     protected void doGet(HttpServletRequest req, HttpServletResponse resp)
@@ -33,6 +38,18 @@ public class MeteoServlet extends HttpServlet {
             request.setAttribute("city", city);
             request.setAttribute("temperature", temperature);
         }
+        String user = ((User) request.getSession().getAttribute("user")).getLogin();
+        HashMap<String, Integer> visits =(HashMap<String, Integer>) getServletContext().getAttribute("visitRecorder");
+        if (visits == null) {
+            visits = new HashMap<String, Integer>();
+        }
+        Integer i;
+        if ((i=visits.get(user)) != null) {
+            visits.put(user,i+1);
+        } else {
+            visits.put(user, 0);
+        }
+        getServletContext().setAttribute("visitRecorder",visits);
         request.getRequestDispatcher("/Meteo.jsp").forward(request, response);
     }
 }
